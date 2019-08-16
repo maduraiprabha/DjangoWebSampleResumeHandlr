@@ -1,0 +1,19 @@
+<!DOCTYPE html>  
+<html lang="en">  
+    <head>  
+        <meta charset="UTF-8">  
+        <title>List of Resumes</title>  
+        {% load staticfiles %}  
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    </head>  
+    <body>     
+   <body>
+	{% block content %}
+	Resumes: Candidate Name  - Mail id          -  Date        -  Status<p>
+	{% for row in object_list %}
+	   {{row.candidate_name}} - {{row.candidate_mail}} - {{row.resume_date}} - {{row.resume_status}}</p>
+	{% endfor %}
+	{% endblock %}
+   </body>
+   
+</html>

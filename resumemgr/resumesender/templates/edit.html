@@ -1,0 +1,66 @@
+    <!DOCTYPE html>  
+    <html lang="en">  
+    <head>  
+        <meta charset="UTF-8">  
+        <title>Index</title>  
+        {% load staticfiles %}  
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    </head>  
+    <body>  
+    <form method="POST" class="post-form" action="/resumesender/update/{{profile.id}}">  
+            {% csrf_token %}  
+        <div class="container">  
+    <br>  
+        <div class="form-group row">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">  
+        <h3>Update Details</h3>  
+        </div>  
+      </div>  
+        <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">profile Id:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="id" id="id_eid" required maxlength="20" value="{{ profile.id }}"/>  
+        </div>  
+      </div>  
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">profile Name:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="candidate_name" id="id_name" required maxlength="100" value="{{ profile.candidate_name }}" />  
+        </div>  
+      </div>  
+        <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">profile Email:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="candidate_mail" id="id_email" required maxlength="254" value="{{ profile.candidate_mail }}" />  
+        </div>  
+     <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Resume doc:</label>  
+		<iframe src="../{{ profile.resume_file }}"></iframe>
+      </div>  
+        <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Date:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="resume_date" id="id_date" required maxlength="254" value="{{ profile.resume_date }}" />  
+        </div>   
+       <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">profile status:</label>  
+        <div class="col-sm-4">  
+            <input type="text" name="resume_status" id="id_status" required maxlength="254" value="{{ profile.resume_status }}" />  
+        </div>   
+        <div class="form-group row">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">  
+        <button type="submit" class="btn btn-success">Update</button>  
+        </div>  
+        </div>  
+       </div>  
+		<div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Show Resumes:</label>  
+        <div class="col-sm-4">  
+           <a href="/resumesender/show">Show Resumes</a> 
+        </div>  
+      </div> 
+    </form>  
+    </body>  
+    </html>  

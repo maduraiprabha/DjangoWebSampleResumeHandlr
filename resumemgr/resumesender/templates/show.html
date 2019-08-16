@@ -1,0 +1,41 @@
+    <!DOCTYPE html>  
+    <html lang="en">  
+    <head>  
+        <meta charset="UTF-8">  
+        <title>Resume Profiles</title>  
+         {% load staticfiles %}  
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    </head>  
+    <body>  
+    <table class="table table-striped table-bordered table-sm">  
+        <thead class="thead-dark">  
+        <tr>  
+            <th>profile-ID</th>  
+            <th>profile-Name</th>  
+            <th>profile-Email</th>  
+            <th>date</th>
+			<th>Resume-Status</th>
+            <th>Actions</th>  
+        </tr>  
+        </thead>  
+        <tbody>  
+    {% for profile in profiles %}  
+        <tr>  
+            <td>{{ profile.id }}</td>  
+            <td>{{ profile.candidate_name }}</td>  
+            <td>{{ profile.candidate_mail }}</td>  
+            <td>{{ profile.resume_date }}</td>
+			<td>{{ profile.resume_status }}</td> 
+            <td>  
+                <a href="/resumesender/edit/{{ profile.id }}"><span class="glyphicon glyphicon-pencil" >Edit</span></a>  
+                <a href="/resumesender/delete/{{ profile.id }}">Delete</a>  
+            </td>  
+        </tr>  
+    {% endfor %}  
+        </tbody>  
+    </table>  
+    <br>  
+    <br>  
+    <center><a href="/resumesender/profile" class="btn btn-primary">Add New Resume</a></center>  
+    </body>  
+    </html>  

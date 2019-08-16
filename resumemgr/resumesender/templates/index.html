@@ -1,0 +1,46 @@
+    <!DOCTYPE html>  
+    <html lang="en">  
+    <head>  
+        <meta charset="UTF-8">  
+        <title>Index</title>  
+        {% load staticfiles %}  
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>  
+    </head>  
+    <body>  
+    <form method="POST" class="post-form" action="/resumesender/prof">  
+            {% csrf_token %}  
+        <div class="container">  
+    <br>  
+        <div class="form-group row">  
+        <label class="col-sm-1 col-form-label"></label>  
+        <div class="col-sm-4">  
+        <h3>Choose Action</h3>  
+        </div>  
+      </div>  
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Show Resumes:</label>  
+        <div class="col-sm-4">  
+           <a href="/resumesender/show">Show Resumes</a> 
+        </div>  
+      </div> 
+	<br>	  
+      <div class="form-group row">  
+        <label class="col-sm-2 col-form-label">Upload new resume:</label>  
+        <div class="col-sm-4">  
+          <a href="/resumesender/profile/">Upload new resume</a>  
+        </div>  
+      </div>  
+	 <br> 
+     <br>
+        <div class="form-group row">  
+          <p>Resume counts:</p>
+		  <ul>
+			<li><strong>num_resumes:</strong> {{ num_resumes }}</li>
+			<li><strong>num_resumes_applied:</strong> {{ num_resumes_applied }}</li>
+			<li><strong>num_resumes_viewed:</strong> {{ num_resumes_viewed }}</li>
+			<li><strong>num_resumes_accepted:</strong> {{ num_resumes_accepted }}</li>
+		  </ul>  
+        </div>			
+    </form>  
+    </body>  
+    </html>  
